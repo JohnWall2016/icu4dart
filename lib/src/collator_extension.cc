@@ -91,14 +91,14 @@ void collator_compare(Dart_NativeArguments args)
 
     handle = Dart_GetNativeArgument(args, 1);
     Dart_StringLength(handle, &first_len);
-    first = reinterpret_cast<uint16_t *>(malloc(first_len * sizeof(uint16_t)));
+    first = (uint16_t *)malloc(first_len * sizeof(uint16_t));
     handle = Dart_StringToUTF16(handle, first, &first_len);
     if (Dart_IsError(handle))
         Dart_PropagateError(handle);
 
     handle = Dart_GetNativeArgument(args, 2);
     Dart_StringLength(handle, &second_len);
-    second = reinterpret_cast<uint16_t *>(malloc(second_len * sizeof(uint16_t)));
+    second = (uint16_t *)malloc(second_len * sizeof(uint16_t));
     handle = Dart_StringToUTF16(handle, second, &second_len);
     if (Dart_IsError(handle))
         Dart_PropagateError(handle);
